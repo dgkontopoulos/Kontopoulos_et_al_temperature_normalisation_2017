@@ -282,7 +282,7 @@ ggplot(results_df, aes(x = Group, y = y)) + geom_violin(aes(fill = Var),
     theme_bw() +
     scale_fill_manual(labels = expression(italic(B)[0], 
 	italic(B) * '(' * italic(T)[ref] * ')'), 
-	values = c("#a6cee3", "#fc8d62")) +
+	values = c("#a6cee3", "#5fd35f")) +
     theme(
 	plot.margin = unit(c(0,0,0,0), "cm"),
 	axis.text.y = element_text(size = 9, angle=90, hjust = 1),
@@ -303,7 +303,7 @@ ggplot(results_df, aes(x = Group, y = y)) + geom_violin(aes(fill = Var),
 	color = "#a6cee3", parse = TRUE) + 
     annotate("text", x = 1.27, y = 6.15, 
 	label = "italic(D)==0.07 *'; '~italic(p)==0.21", size = 3, 
-	color = "#fc8d62", parse = TRUE)
+	color = "#5fd35f", parse = TRUE)
 
 dev.off()
 
@@ -321,7 +321,7 @@ pdf(file = "../Results/simulation2.pdf", width = 3, height = 3,
     colormodel = 'cmyk')
 ggplot(results_df_2, aes(x = T_pk - 273.15, y = y)) +
     geom_point(size=0.6, show.legend = FALSE) +
-    stat_bkde2d(aes(fill=..level..), geom="polygon", show.legend = FALSE) +
+    stat_bkde2d(aes(fill=..level..), alpha = 0.7, geom="polygon", show.legend = FALSE) +
     scale_fill_gradientn(colours = terrain.colors(100)) +
     facet_wrap(~Var, ncol = 1, nrow = 2, scales = "free_x", labeller=label_parsed) +
     ylab(expression("Performance at 7°C (" * s^-1 * ")")) +

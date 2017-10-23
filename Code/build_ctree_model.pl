@@ -22,7 +22,7 @@ Readonly::Scalar my $T_REF => 273.15;
 my $training_dataset = csv(
     in       => '../Results/fits_Sharpe_Schoolfield.csv',
     headers  => 'skip',
-    sep_char => "\t",
+    sep_char => ',',
     fragment => 'col=1-2;4-7'
 );
 
@@ -30,7 +30,7 @@ my $training_dataset = csv(
 my $testing_dataset = csv(
     in       => '../Results/fits_Sharpe_Schoolfield_test.csv',
     headers  => 'skip',
-    sep_char => "\t",
+    sep_char => ',',
     fragment => 'col=1-2;4-7'
 );
 
@@ -279,9 +279,6 @@ sub prepare_testing_dataset
         # Calculate T_h and convert it to °C.
         my $t_h = calc_t_h( $t_pk + 273.15, $e_d, $e );
         $t_h -= 273.15;
-
-        # Ignore fits with B0 == 0 or B(T_ref) == 0 (just in case they exist).
-        next if $b0 == 0 or $b_t_ref == 0;
 
         # Generate a unique ID for this TPC.
         push @id_test, $species . q{_} . $ref;

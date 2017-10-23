@@ -8,7 +8,7 @@ This repository contains code that reproduces the analyses of the following stud
 
 #### Dependencies
 
-As the scripts are written in **Python 2.7.6**, **Perl 5.18**, and **R 3.1.1**, a number of modules or packages need to be preinstalled.
+As the scripts are written in **Python 2.7.6**, **Perl 5.18**, and **R 3.3.1**, a number of modules or packages need to be preinstalled.
 
 In particular:
 
@@ -21,14 +21,15 @@ In particular:
  	* Readonly, version 2.00
  	* Statistics::R, version 0.34
  	* Text::CSV_XS, version 1.12
-* **For R 3.1.1:**
+* **For R 3.3.1:**
  	* ggalt, version 0.4.0
  	* ggplot2, version 2.2.1
- 	* minpack.lm, version 1.1-8
+ 	* minpack.lm, version 1.2-1
  	* party, version 1.0-18
  
 ---
  
 #### Execution
 
-At the top of each script there is a small description of its purpose and the command that can be used to run it.
+At the top of each script there is a small description of its purpose and the command that can be used to run it. 
+Some directories (e.g., "Results/"; see each script) need to be manually created for the output files to be generated.
